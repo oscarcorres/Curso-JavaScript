@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+<title>Ejemplo VI</title>
+
+<noscript>
+    El navegador no soporta javascript o esta desactivado.
+    Es necesario activar el soporte o cambiar de navegador para visualizar correctamente esta página.
+</noscript>
+<script type="text/javascript" src="codigo.js"></script>
+</head>
+
+<body>
+<h1>Ejercicio 6</h1>
+<p>El cálculo de la letra del Documento Nacional de Identidad (DNI) es un proceso matemático sencillo que se basa en obtener el resto de la división entera del número de DNI y el número 23. A partir del resto de la división, se obtiene la letra seleccionándola dentro de un array de letras.</p>
+<p>El array de letras es:</p>
+<p style="width:96%;height:auto;background-color:lightgrey;color:black;border:black;padding:2%">
+var letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T'];
+</p>
+<ol>
+    <li>Almacene en una variable el número de DNI indicado por el usuario y en otra variable la letra del DNI que se ha indicado.</li>
+    <li>En primer lugar (y en una sola instrucción) se debe comprobar si el número es menor que 0 o mayor que 99999999. Si ese es el caso, se muestra un mensaje al usuario indicando que el número proporcionado no es válido y el programa no muestra más mensajes.</li>
+    <li>Si el número es válido, se calcula la letra que le corresponde según el método explicado anteriormente.</li>
+    <li>Una vez calculada la letra, se debe comparar con la letra indicada por el usuario. Si no coinciden, se muestra un mensaje al usuario diciéndole que la letra que ha indicado no es correcta. En otro caso, se muestra un mensaje indicando que el número y la letra de DNI son correctos.</li>
+</ol>
+<table>
+<tbody>
+<tr>
+<td ><fieldset><legend>DNI:</legend> <input id="dni" type="text" maxlength=8 value="" placeholder="DNI" autofocus oninput="cambiaDni()"/> </fieldset></td>
+<td ><fieldset><legend>Letra:</legend> <input size=1 maxlength=1 id="letra" type="text" value="" /> </fieldset></td>
+<td >&nbsp;</td>
+</tr>
+<tr>
+<td id="Mensaje" color=red>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>
