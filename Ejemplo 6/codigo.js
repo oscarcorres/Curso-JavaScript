@@ -20,24 +20,24 @@ function cambiaDni(dni) {
 //  var dni = document.getElementById('dni').value
 
   if (dni.value == "") {
-    dni.style.backgroundcolor = "default";
+    dni.style.backgroundColor = "default";
     document.getElementById('Mensaje').innerText = "";
     console.log("DNI nulo");
     dniVale = false;
   }
   else if ( isNaN(dni.value) ) {
-      dni.style.backgroundcolor = "lightred";
+      dni.style.backgroundColor = "red";
       document.getElementById('Mensaje').innerText = "El campo debe ser numérico";
       console.log("DNI no es número");
       dniVale = false;
     }
   else if (dni.value<0 || dni.value>99999999) {
-        dni.style.backgroundcolor = "lightred";
+        dni.style.backgroundColor = "lightred";
         document.getElementById('Mensaje').innerText = "El valor debe estar entre 0 y 99999999";
         dniVale = false;
       }
   else {
-        dni.style.backgroundcolor = "lime";
+        dni.style.backgroundColor = "lime";
         document.getElementById('Mensaje').innerText = "";
         console.log("DNI va bien");
         dniVale = true;
