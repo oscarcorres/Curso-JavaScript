@@ -16,46 +16,42 @@
 var letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T'];
 var dniVale = false;
 
-function cambiaDni() {
-  var dni = document.getElementById('dni').value
+function cambiaDni(dni) {
+//  var dni = document.getElementById('dni').value
 
-  if (dni == "") {
-    document.getElementById('dni').style.backgroundcolor = "default";
+  if (dni.value == "") {
+    dni.style.backgroundcolor = "default";
     document.getElementById('Mensaje').innerText = "";
     console.log("DNI nulo");
-    var dniVale = false;
+    dniVale = false;
   }
-  else {
-    if (isNaN(dni)) {
-      document.getElementById('dni').style.backgroundcolor = "lightred"
-      document.getElementById('Mensaje').innerText = "El campo debe ser numérico"
+  else if ( isNaN(dni.value) ) {
+      dni.style.backgroundcolor = "lightred";
+      document.getElementById('Mensaje').innerText = "El campo debe ser numérico";
       console.log("DNI no es número");
-      var dniVale = false;
+      dniVale = false;
     }
-    else {
-      if (dni<0 || dni>99999999) {
-        document.getElementById('dni').style.backgroundcolor = "lightred"
-        document.getElementById('Mensaje').innerText = "El valor debe estar entre 0 y 99999999"
-        var dniVale = false;
+  else if (dni.value<0 || dni.value>99999999) {
+        dni.style.backgroundcolor = "lightred";
+        document.getElementById('Mensaje').innerText = "El valor debe estar entre 0 y 99999999";
+        dniVale = false;
       }
-      else {
-        document.getElementById('dni').style.backgroundcolor = "lime"
-        document.getElementById('Mensaje').innerText = ""
+  else {
+        dni.style.backgroundcolor = "lime";
+        document.getElementById('Mensaje').innerText = "";
         console.log("DNI va bien");
-        var dniVale = true;
-        if (document.getElementById('letra').value<>"") {checkLetra()}
+        dniVale = true;
+        if (document.getElementById('letra').value != "") {checkLetra()};
       }
-    }
-  }
 }
 
 function checkLetra() {
-  if dniVale {
-    if ( document.getElementById('letra').value == letras[(document.getElementById('dni').value % 23)] ) {
-
+  if ( dniVale ) {
+    if ( document.getElementById('letra').value.toUpperCase() == letras[(document.getElementById('dni').value % 23)] ) {
+      document.getElementById('Mensaje').innerText = ""
     }
     else {
-
+      document.getElementById('Mensaje').innerText = "La letra no corresponde con el dni"
     }
   }
 }

@@ -27,9 +27,9 @@ var letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', '
 <table>
 <tbody>
 <tr>
-<td ><fieldset><legend>DNI:</legend> <input id="dni" type="text" maxlength=8 value="" placeholder="DNI" autofocus oninput="cambiaDni()"/> </fieldset></td>
-<td ><fieldset><legend>Letra:</legend> <input size=1 maxlength=1 id="letra" type="text" value="" /> </fieldset></td>
-<td >&nbsp;</td>
+<td ><fieldset><legend>DNI:</legend> <input id="dni" type="text" maxlength=8 value="" placeholder="DNI" autofocus oninput="cambiaDni(this)"/> </fieldset></td>
+<td ><fieldset><legend>Letra:</legend> <input size=1 maxlength=1 id="letra" type="text" value="" oninput="checkLetra()" /> </fieldset></td>
+<td id="imagen">&nbsp;</td>
 </tr>
 <tr>
 <td id="Mensaje" color=red>&nbsp;</td>
