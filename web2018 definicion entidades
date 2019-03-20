@@ -1,0 +1,94 @@
+use web2018
+
+db.createCollection("Usuarios", {
+   validator: {
+      $jsonSchema: {
+         bsonType: "object",
+         required: [ "nombre", "contrasena_encriptada",  "fecha_creacion", "ultima_fecha_modif"],
+         properties: {
+		nombre: {
+                        bsonType: "string",
+                        description: "Debe ser un string y es obligatorio"
+                        },
+                email: {
+                        $regex: /@[azAZ]\.com$/ ,
+                        description: "Debe ser un string con formato email"
+		       },
+		avatar:{
+                        $regex: '<url>'*'</url>',
+                        description: "Hiperenlace a una imagen"
+			},
+		contrasena_encriptada: {
+			bsonType: "string"
+			},
+		activo: {
+			bsonType: "boolean"
+			},
+		clave_activacion: {
+			bsonType: "string"
+			},
+		grupos_de_usuarios: [
+			{
+			bsonType: "objectID", ref: "GruposUsuarios"
+			}
+			],
+		API_TOKEN_KEY: {
+			bsonType: "string"
+			},
+		versión: {
+			bsonType: "number"
+			},
+		fecha_creacion: {
+			bsonType: "date"
+			},
+		ultima_fecha_modif: {
+			bsonType: "date"
+			}
+		}
+	}
+	}
+	}
+)
+
+db.createCollection("GruposUsuarios",{
+   validator: {
+      $jsonSchema: {
+         bsonType: "object",
+         required: [ "Nombre_grupo" ],
+         properties: {
+		Nombre_grupo:  {
+			bsonType: "string",
+			description: "Denominación del grupo de usuarios para permisos"
+			}
+			}
+}
+}
+}
+)
+
+
+db.createCollection("Publicaciones",{
+   validator: {
+      $jsonSchema: {
+         bsonType: "object",
+         required: [  ],
+         properties: {
+
+ título
+- nombre
+- tipo
+- url []
+- enlaces []
+- publicado (boolean)
+- publico (boolean)
+- autor
+- ultimo_editor
+- entradilla
+- imagen_portada (icono)
+- posicion_icono
+- main (menu)
+- texto_completo
+- tags []
+- versión
+- fecha_creacion
+- ultima_fecha_modif

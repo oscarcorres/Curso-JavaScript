@@ -1,13 +1,19 @@
 function toggleMostrar(evento) {
   evento.preventDefault();
-  console.log(evento.currentTarget.nextSibling);
-  if (evento.currentTarget.value = "Ocultar contenidos") {
-      evento.currentTarget.value = "Mostrar contenidos";
-      evento.currentTarget.parentNode.firstChild.visibility="hidden"
+  var parrafos = evento.currentTarget.parentNode.getElementsByTagName('p');
+  if (evento.currentTarget.innerText == "Ocultar contenidos") {
+    evento.currentTarget.innerText = "Mostrar contenidos";
+    for (var i=0; i<parrafos.length; ++i) {
+      // parrafos[i].visibility = "hidden";
+      parrafos[i].hidden = true;
+    }
   }
   else {
-    evento.currentTarget.value = "Ocultar contenidos"
-    evento.currentTarget.parentNode.firstChild.visibility="visible"
+    evento.currentTarget.innerText = "Ocultar contenidos"
+    for (var i=0; i<parrafos.length; ++i) {
+      // parrafos[i].visibility = "visible";
+      parrafos[i].hidden = false;
+    }
   }
 }
 
